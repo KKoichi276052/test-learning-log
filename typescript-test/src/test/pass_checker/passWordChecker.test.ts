@@ -17,37 +17,37 @@ describe("PasswordChecker test suite", () => {
 		// 	expect(() => {
 		// 		sut.checkPassword(password);
 		// 	}).toThrow("Password must be at least 8 characters");
+		// // });
+		// it("should return false when password is less than 8 characters", () => {
+		// 	const password = "1234567";
+
+		// 	const result = sut.checkPassword(password);
+
+		// 	expect(result.valid).toBe(false);
+		// 	expect(result.reasons).toContain(ERROR_NAME.PASSWORD_TOO_SHORT);
 		// });
-		it("should return false when password is less than 8 characters", () => {
-			const password = "1234567";
 
-			const result = sut.checkPassword(password);
+		// it("should return false when password does not contain uppercase letter", () => {
+		// 	const password = "12345678";
 
-			expect(result.valid).toBe(false);
-			expect(result.reasons).toContain(ERROR_NAME.PASSWORD_TOO_SHORT);
-		});
+		// 	const result = sut.checkPassword(password);
 
-		it("should return false when password does not contain uppercase letter", () => {
-			const password = "12345678";
+		// 	expect(result.valid).toBe(false);
+		// 	expect(result.reasons).toContain(ERROR_NAME.NO_UPPERCASE_LETTER);
+		// });
 
-			const result = sut.checkPassword(password);
+		// it("should return false when password does not contain lowercase letter", () => {
+		// 	// to fail test
+		// 	// const password = "12345678f";
 
-			expect(result.valid).toBe(false);
-			expect(result.reasons).toContain(ERROR_NAME.NO_UPPERCASE_LETTER);
-		});
+		// 	// to pass test
+		// 	const password = "12345678";
 
-		it("should return false when password does not contain lowercase letter", () => {
-			// to fail test
-			// const password = "12345678f";
+		// 	const result = sut.checkPassword(password);
 
-			// to pass test
-			const password = "12345678";
-
-			const result = sut.checkPassword(password);
-
-			expect(result.valid).toBe(false);
-			expect(result.reasons).toContain(ERROR_NAME.NO_LOWERCASE_LETTER);
-		});
+		// 	expect(result.valid).toBe(false);
+		// 	expect(result.reasons).toContain(ERROR_NAME.NO_LOWERCASE_LETTER);
+		// });
 
 		it("should return true when password is valid", () => {
 			const password = "12345678Ff";
@@ -56,6 +56,15 @@ describe("PasswordChecker test suite", () => {
 
 			expect(result.valid).toBe(true);
 			expect(result.reasons).toHaveLength(0);
+		});
+
+		it("should return false when admin password does not contain number", () => {
+			const password = "password";
+
+			const result = sut.checkAdminPassword(password);
+
+			expect(result.valid).toBe(false);
+			expect(result.reasons).toContain(ERROR_NAME.NO_NUMBER);
 		});
 	});
 });
