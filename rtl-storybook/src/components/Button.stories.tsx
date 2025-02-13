@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
 	args: {
-		label: "Primary Button",
+		label: "Primary Button 2",
 		primary: true,
 	},
 };
