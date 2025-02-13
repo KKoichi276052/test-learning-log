@@ -1,9 +1,9 @@
-import {
+import type {
 	createServer,
 	IncomingMessage,
 	Server as NodeServer,
 	ServerResponse,
-} from "http";
+} from "node:http";
 import { Authorizer } from "../auth/Authorizer";
 import { ReservationsDataAccess } from "../data/ReservationsDataAccess";
 import { LoginHandler } from "../handlers/LoginHandler";
