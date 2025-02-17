@@ -49,7 +49,7 @@ describe("GroupRepository", () => {
 			};
 			mockFs.existsSync.mockReturnValueOnce(true);
 			mockFs.readFileSync.mockReturnValueOnce(JSON.stringify([]));
-			console.log(repo);
+
 			repo.saveGroup(group);
 			expect(mockFs.writeFileSync).toHaveBeenCalledWith(
 				"groups.json",
