@@ -1,0 +1,12 @@
+{
+  "name": "todo-api-tdd-hono",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
